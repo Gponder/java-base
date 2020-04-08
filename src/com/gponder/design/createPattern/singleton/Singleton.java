@@ -1,4 +1,4 @@
-package com.gponder.design.createPattern;
+package com.gponder.design.createPattern.singleton;
 
 /**
  * @auth ponder
