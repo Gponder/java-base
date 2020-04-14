@@ -42,6 +42,19 @@ public class FunctionInterface {
         }
     }
 
+    class J8 implements  J8Interface {
+
+        @Override
+        public void print(String s) {
+
+        }
+
+        @Override
+        public void printDefault(int i) {
+
+        }
+    }
+
     public static void main(String[] args) {
         new FunctionInterface().forEach();
     }
