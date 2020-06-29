@@ -1,30 +1,40 @@
 package com.gponder.structure;
 
-import java.util.*;
 
-public class MyMap<K,V>  implements Map {
+import java.util.Collection;
+import java.util.Map;
+import java.util.Set;
+
+public class MyMap<K,V>  implements Map<K,V> {
 
     Set<K> keys;
     Set<Map.Entry<K,V>> entries;
 
     public static void main(String[] args) {
-        MyMap<Object, Object> map = new MyMap<>();
-        System.out.println(Integer.toHexString(map.hash("asdbasd")));
+        MyMap<Man, Integer> map = new MyMap<>();
+        for (int i=0;i<1;i++){
+            map.put(new Man(i),i);
+        }
     }
+
+    private int hash(K key) {
+        int h;
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+    }
+
     @Override
     public int size() {
-        return keys.size();
+        return 0;
     }
 
     @Override
     public boolean isEmpty() {
-        return size()==0;
+        return false;
     }
 
     @Override
     public boolean containsKey(Object key) {
-        //getNode !=null
-        return keys.contains(key);
+        return false;
     }
 
     @Override
@@ -33,32 +43,24 @@ public class MyMap<K,V>  implements Map {
     }
 
     @Override
-    public Object get(Object key) {
-        return getNode(hash(key),key);
-    }
-
-    private Object getNode(int hash, Object key) {
-        return null;
-    }
-
-    private int hash(Object key) {
-        int h;
-        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
-    }
-
-    @Override
-    public Object put(Object key, Object value) {
-
+    public V get(Object key) {
         return null;
     }
 
     @Override
-    public Object remove(Object key) {
+    public V put(K key, V value) {
+        System.out.println(key.getClass());
+        System.out.println(value.getClass());
         return null;
     }
 
     @Override
-    public void putAll(Map m) {
+    public V remove(Object key) {
+        return null;
+    }
+
+    @Override
+    public void putAll(Map<? extends K, ? extends V> m) {
 
     }
 
@@ -68,19 +70,20 @@ public class MyMap<K,V>  implements Map {
     }
 
     @Override
-    public Set keySet() {
+    public Set<K> keySet() {
         return null;
     }
 
     @Override
-    public Collection values() {
+    public Collection<V> values() {
         return null;
     }
 
     @Override
-    public Set<Entry> entrySet() {
+    public Set<Entry<K, V>> entrySet() {
         return null;
     }
+
 
     class Node implements Map.Entry<K,V>{
         private int hash;
