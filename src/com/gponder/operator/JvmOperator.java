@@ -36,6 +36,9 @@ public class JvmOperator {
         System.out.println(0&0);
     }
 
+    /**
+     * 相同为0 不同为1
+     */
     public void notOr(){
         System.out.println(1^0);
         System.out.println(1^1);
