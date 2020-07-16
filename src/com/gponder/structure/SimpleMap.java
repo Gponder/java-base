@@ -1,6 +1,5 @@
 package com.gponder.structure;
 
-
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,6 +15,11 @@ public class SimpleMap<K,V>  implements Map<K,V> {
         for (int i=0;i<10;i++){
             map.put(1,1);
         }
+        SimpleMap<Object, Object> sMap = new SimpleMap<Object, Object>();
+        sMap.put(1,1);
+        sMap.put(2,2);
+        System.out.println(sMap.get(1));
+        System.out.println(sMap.get(2));
     }
 
     static final int max_capacity=1<<30;
