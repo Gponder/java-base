@@ -1,7 +1,8 @@
 package com.gponder.pool;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.*;
 
 /**
  * @auth ponder
@@ -14,5 +15,31 @@ public class ExecutorsTest {
         Executors.newFixedThreadPool(5);//固定大小的线程池
         Executors.newSingleThreadExecutor();//单线程的线程池
         Executors.newScheduledThreadPool(5);//适用于执行延时或者周期性任务
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(Thread.currentThread().getName());
+            }
+        });
+        Future<Object> future = executorService.submit(new Callable<Object>() {
+            @Override
+            public Object call() throws Exception {
+                Thread.sleep(10000);
+                Map<String,String> map = new HashMap<>();
+                map.put("call","callable");
+                map.put("threadName",Thread.currentThread().getName());
+                map.put("threadId", String.valueOf(Thread.currentThread().getId()));
+                return map;
+            }
+        });
+        try {
+            //阻塞 直到callable执行完返回数据
+            Object object = future.get();
+            System.out.println(object.toString());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
     }
 }
