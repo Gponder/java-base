@@ -1,8 +1,8 @@
-package com.gponder.j8;
+package com.gponder.character.j8;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.*;
+
 /**
  * @auth ponder
  * @Email gponder.g@gmail.com
