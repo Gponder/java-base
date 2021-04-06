@@ -11,6 +11,7 @@ import java.util.Date;
  *  其实传递的是指针指向的内存地址 该地址数据的变化可以被感知,指针引用的改变不可以被感知
  *
  *
+ * 与final的区别
  *
  */
 public class TransmitType {
@@ -79,6 +80,15 @@ public class TransmitType {
 
     public void pack(Integer integer){
         //无法改变integer的值
+    }
+
+    public void testFinal(String s){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(s);
+            }
+        }).run();
     }
 
 }
