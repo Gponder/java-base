@@ -1,7 +1,7 @@
 package com.gponder.character.java.clone;
 
 /**
- * Cloneable 接口中没有任何方法，但是实现它却可以扩展.clone()方法。类似接口还有Serializable
+ * Cloneable 接口中没有任何方法。类似接口还有Serializable
  *
  * 浅克隆  深克隆需要实现clone()方法递归实现clone()操作
  */
